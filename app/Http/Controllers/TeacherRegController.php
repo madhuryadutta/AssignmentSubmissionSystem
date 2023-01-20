@@ -70,6 +70,22 @@ class TeacherRegController extends Controller
         }
     }
 
+    public function dashboard(){ 
+    {
+            // $data = array();
+            $todayDate = Carbon::now();
+            if (Session::has('loginId')) {
+                $sid =  Session::get('loginId');
+                $data = TeacherRegModel::where('t_id', "=", Session::get('loginId'))->first();
+                // $data1 = department::where('d_id', "=", $data->d_id)->first();
+                return view('teacher_dashboard', compact('data', 'sid', 'todayDate'));
+            }
+        }
+     
+}
+
+
+
 
     public function logout(){
         if (Session::has('loginId')) {

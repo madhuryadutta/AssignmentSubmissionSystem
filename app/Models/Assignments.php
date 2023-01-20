@@ -15,7 +15,6 @@ class Assignments extends Model
         't_id',
         'd_id',
         'semester',
-        'status',
         'submission_d_t' => 'date:hh:mm'
     ];
 

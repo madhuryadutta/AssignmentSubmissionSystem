@@ -19,9 +19,10 @@ class StudentRegController extends Controller
     {
         return view('login');
     }
-    public function register(){
-        $data['department']=DB::table('department')->orderBy('d_name','asc')->get();
-        return view('register',$data);
+    public function register()
+    {
+        $data['department'] = DB::table('department')->orderBy('d_name', 'asc')->get();
+        return view('register', $data);
     }
     public function studentreg(Request $request)
     {
@@ -69,25 +70,27 @@ class StudentRegController extends Controller
             return redirect('/')->with('mail', "You Have Entered Wrong Email");
         }
     }
-    public function dashboard(){
-        {
-           // $data = array();
-           $todayDate = Carbon::now();
+    public function dashboard()
+    { {
+            // $data = array();
+            $todayDate = Carbon::now();
             if (Session::has('loginId')) {
-            $sid =  Session::get('loginId');  
-            $data = StuRegModel::where('id', "=", Session::get('loginId'))->first();
-            $data1 = department::where('d_id', "=",$data->d_id)->first();
-            $data2 = Assignments::all()->where('d_id', "=",$data->d_id)->where('semester', '=',$data->semester);
-            $data3 = assignment_status::all()->where('student_id', '=',Session::get('loginId'));
-            return view('dashboard', compact('data','data1','data2','data3','sid','todayDate'));
-        } } 
+                $sid =  Session::get('loginId');
+                $data = StuRegModel::where('id', "=", Session::get('loginId'))->first();
+                $data1 = department::where('d_id', "=", $data->d_id)->first();
+                $data2 = Assignments::all()->where('d_id', "=", $data->d_id)->where('semester', '=', $data->semester);
+                $data3 = assignment_status::all()->where('student_id', '=', Session::get('loginId'));
+                return view('dashboard', compact('data', 'data1', 'data2', 'data3', 'sid', 'todayDate'));
+            }
         }
- 
+    }
 
-    public function logout(){
+
+    public function logout()
+    {
         if (Session::has('loginId')) {
             Session::pull('loginId');
             return redirect('/');
         }
     }
-}  
+}

@@ -5,6 +5,7 @@ use App\Http\Controllers\StudentRegController;
 use App\Http\Controllers\ProfileControlController;
 use App\Http\Controllers\TeacherRegController;
 use App\Http\Controllers\viewQuestionController;
+use App\Http\Controllers\AssignmentController;
 use App\Models\TeacherRegModel;
 
 /*
@@ -37,7 +38,14 @@ Route::post('submitAns/{stu_id}{ass_id}',[viewQuestionController::class, 'submit
 
 
 //routes for teacher module functions
-Route::get('/teacher',[TeacherRegController::class,'index']);
-Route::get('/teacher-account-creation', [TeacherRegController::class, 'register'])->name('t_Register');
-Route::post('/teacherreg',[TeacherRegController::class,'teacherreg']);
-Route::post('/teacher_login',[TeacherRegController::class,'login']);
+Route::get('teacher',[TeacherRegController::class,'index']);
+Route::get('teacher-account-creation', [TeacherRegController::class, 'register'])->name('t_Register');
+Route::post('teacherreg',[TeacherRegController::class,'teacherreg']);
+Route::post('teacher_login',[TeacherRegController::class,'login']);
+// Route::get('teacher_dashboard',[TeacherRegController::class,'dashboard']);
+Route::get('teacher_dashboard',function(){
+    return view('teacher_dashboard');
+});
+Route::get('teacher_logout',[TeacherRegController::class,'logout']);
+Route::get('create_assignment',[AssignmentController::class,'index']);
+// Route::post('create_assignment',[AssignmentController::class,'store']);

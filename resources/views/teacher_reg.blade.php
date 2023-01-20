@@ -103,7 +103,7 @@
 
 				<div class="mt-2 mb-3">
 					<center>
-					<button class="btn btn-secondary btn-sm-3"><a href="{{url('go')}}" class="nav-link"><i class="fas fa-angle-left"></i> 
+					<button class="btn btn-secondary btn-sm-3"><a href="{{url('teacher')}}" class="nav-link"><i class="fas fa-angle-left"></i> 
 					  Back </a></button>
 					  
 						<button class="btn btn-secondary btn-sm-3">Sign Up</button>
