@@ -38,5 +38,6 @@ Route::post('submitAns/{stu_id}{ass_id}',[viewQuestionController::class, 'submit
 
 //routes for teacher module functions
 Route::get('/teacher',[TeacherRegController::class,'index']);
-Route::get('/teacher-account-creation', [TeacherRegController::class, 'register'])->name('Register');
+Route::get('/teacher-account-creation', [TeacherRegController::class, 'register'])->name('t_Register');
 Route::post('/teacherreg',[TeacherRegController::class,'teacherreg']);
+Route::post('/teacher_login',[TeacherRegController::class,'login']);

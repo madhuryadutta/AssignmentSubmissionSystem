@@ -12,13 +12,13 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-	<title>registation_Page</title>
+	<title>Teacher Registation Form</title>
 </head>
 <body>
 	<div class="container-fluid">
 		<center>
 			<div class="mb-3 mt-3">
-				<h3 class="blurb" style="color:#58bff6"><i class="fas fa-user-graduate"></i> Lets Create An Account </h3>
+				<h3 class="blurb" style="color:#58bff6"><i class="fas fa-user-graduate"></i> Register a Teacher Account </h3>
 			</div>
 		</center>
 

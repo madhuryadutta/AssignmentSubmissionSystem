@@ -45,6 +45,32 @@ class TeacherRegController extends Controller
         $teachers->save();
         return redirect('/teacher')->with('status', "Account Created Successfully.");
     }
+
+
+
+    public function login(Request $request)
+    {
+        $request->validate([
+            'Email' => 'required',
+            'Password' => 'required',
+        ]);
+
+        $usr = TeacherRegModel::where([
+            ['t_email', "=", $request->Email],
+        ])->first();
+        if ($usr) {
+            if (Hash::check($request->Password, $usr->t_password)) {
+                $request->session()->put('loginId', $usr->id);
+                return redirect('teacher_dashboard');
+            } else {
+                return redirect('/teacher')->with('pass', "You Have Entered Wrong Password");
+            }
+        } else {
+            return redirect('/teacher')->with('mail', "You Have Entered Wrong Email");
+        }
+    }
+
+
     public function logout(){
         if (Session::has('loginId')) {
             Session::pull('loginId');

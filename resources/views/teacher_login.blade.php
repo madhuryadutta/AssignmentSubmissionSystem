@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-	<title>student login</title>
+	<title>Teacher Login</title>
 	
 	<style>
 		body {
@@ -52,7 +52,7 @@
 		{{session('status')}}
 	</div>
 	@endif
-			<form class="signup-form" method="POST" action="{{url('login')}}">
+			<form class="signup-form" method="POST" action="{{url('teacher_login')}}">
 				{{ csrf_field()}}
 			
 				<div class="form-item">
@@ -79,7 +79,7 @@
 				</div>
 				<div class="form-item">
 					<div class="row">
-						<p class="pull-left col"><a href="{{route('Register')}}"><small><i class="fas fa-user-plus"></i> Register</small></a></p>
+						<p class="pull-left col"><a href="{{route('t_Register')}}"><small><i class="fas fa-user-plus"></i> Register</small></a></p>
 						<button style="height:30px;" type="submit" class="btn btn-outline-primary ml-5 mr-3 col-sm-4"> <i class="fas fa-user-cog"></i> Log In</button>
 					</div>
 				</div>
