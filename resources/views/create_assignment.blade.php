@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class="container">
-        <form action="{{ url('store-input-fields') }}" method="POST">
+        <form action="{{ url('create_assignment') }}" method="POST">
             @csrf
             @if ($errors->any())
             <div class="alert alert-danger" role="alert">
@@ -32,7 +32,7 @@
             @endif
 
             <div class="form-group">
-            Assignment Id<input type="text" name="a_id" id="">
+            Assignment Id<input type="text" name="id" id="">
         </div>
             <div class="form-group">
             t_id<input type="text" name="t_id" id="">
@@ -78,7 +78,7 @@
     $("#dynamic-ar").click(function () {
         ++i;
         $("#dynamicAddRemove").append('<tr><td><input type="text" name="addMoreInputFields[' + i +
-            '][subject]" placeholder="Enter subject" class="form-control" /></td><td><button type="button" class="btn btn-outline-danger remove-input-field">Delete</button></td></tr>'
+            '][subject]" placeholder="Enter subject" class="form-control" /> </td><td><button type="button" class="btn btn-outline-danger remove-input-field">Delete</button></td></tr>'
             );
     });
     $(document).on('click', '.remove-input-field', function () {
