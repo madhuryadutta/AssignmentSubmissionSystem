@@ -106,10 +106,10 @@
         <a href="" class="nav-link " data-toggle="modal" data-target="#myModal"><i class="fas fa-user-circle"></i> Profile</a>
       </li>
       <li>
-        <a href="load_cat" class="nav-link "><i class="fas fa-user-friends"></i> Group/Classroom</a>
+        <!-- <a href="" class="nav-link"><i class="fas fa-file-import"></i> Missed Assignments</a> -->
       </li>
       <li>
-        <a href="" class="nav-link"><i class="far fa-newspaper"></i> Assignments</a>
+        <a href="{{url('submitted-assignments')}}" class="nav-link"><i class="fas fa-medal"></i> Submitted Assignments</a>
       </li>
       <!-- <li>
         <a href="" class="nav-link">

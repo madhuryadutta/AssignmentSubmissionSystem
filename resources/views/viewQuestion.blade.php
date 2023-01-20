@@ -19,7 +19,7 @@
 
 <body>
 
-	<input type="hidden" value="{{ $n = $data->count()}}">
+	<input type="hidden" value="{{$n=$data->count()}}">
 	@if(!empty($n))
 	<nav class=" text-white font-weight-bold fixed-top shadow " style="background-color: seagreen;z-index: 0;">
 	<div class="container-fluid">
@@ -31,14 +31,19 @@
 	</nav>
 
 	<!-- ------------------------------------ -->
+	
 	<br>
 	<br>
 	<div class="container-fluid mt-5">
-		<form action="{{route('submitAns',['stu_id'=> $id1,'ass_id'=>$id])}}" method="POST" enctype="multipart/form-data">
-			@csrf
+		<form action="{{route('submitAns',['ass_id'=>$id])}}" method="POST" enctype="multipart/form-data">	
+		@csrf
+		<input type="hidden" value="{{$ids}}" name="student_id">
 			<table>
-				@while($n>=0)
+				@while($n>0)
 				@if(!empty($data[$n]))
+				@if($data[$n]->a_id == $id)
+				
+<input type="hidden" value="{{$k=0}}" name="question_no[]">
 				<tr>
 					<div class="row mt-3">
 						<input type="hidden" name="q_id[]" value="{{$data[$n]->q_id}}">
@@ -49,9 +54,11 @@
 					<div class="mt-3">
 						<textarea name="answer[]" id="" cols="130" rows="3" placeholder="Write Your Answer Here."></textarea>
 					</div>
-					@endif
 				</tr>
-				<input type="hidden" value="{{$n--}}" name="question_no[]">
+				<input type="hidden" value="{{$k= $k+1}}" >
+				@endif
+				@endif
+				<input type="hidden" value="{{$n--}}" >
 				@endwhile
 			</table>
 			<div class="form-group row mt-3">
@@ -61,9 +68,9 @@
 				</div>
 			</div>
 			<center>
-				<button type="submit" class='form-control btn btn-success col-3 rounded shadow '>Submit</button>
+				<button type="submit" class='form-control btn btn-success col-3 rounded shadow'>Submit</button>
 			</center>
-
+			
 		</form>
 	</div>
 	@else
@@ -79,7 +86,7 @@
 				<a href="{{url('logout')}}" class=""> <button type="button" class="ml-3 btn btn-outline-light text-success btn-sm-4 ">Log Out </button></a>
 			</p>
 		</div>
-		@endif
+	@endif
 	</div>
 </body>
 

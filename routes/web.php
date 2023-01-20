@@ -48,4 +48,5 @@ Route::get('teacher_dashboard',function(){
 });
 Route::get('teacher_logout',[TeacherRegController::class,'logout']);
 Route::get('create_assignment',[AssignmentController::class,'index']);
-Route::post('create_assignment',[AssignmentController::class,'store']);
+Route::post('create_assignment',[AssignmentController::class,'store'])->name('create_assignment');
+Route::get('teacher_view_assignment',[AssignmentController::class,'view']);

@@ -27,49 +27,34 @@
 			{{session('assign')}}
 		</div>
 		@endif
+		@if(session('assign1'))
+		<div class="alert alert-success alert-dismissible">
+			<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+			{{session('assign1')}}
+		</div>
+		@endif
 		<table>
 			<input type="hidden" value="{{ $n = $data2->count()}}">
 			@while($n>=0)
 			@if(!empty($data2[$n]))
 			@if($data2[$n]->submission_d_t >= $todayDate)
-			<input type="hidden" value="{{$j = $data3->count()}}">
-			@if($j != 0)
-			@while($j>=0)
-			@if(!empty($data3[$j]))
-			@if($data3[$j]->student_id == $sid and $data2[$n]->id != $data3[$j]->a_id)
 			<tr>
 				<div class="row mt-3">
 					<div class="col-12">
 						<div class="card rounded shadow bg-info">
 							<div class="card-header row">
 								<div class="col-sm-10"><i class="far fa-newspaper"></i> {{$data2[$n]->assignment_name}}</div>
-								<div class="ml-auto col-sm bg-info text-light"><a href="{{route('viewQuestion',['id'=>$data2[$n]->id])}}" class=""><button type="button" class="btn btn-outline-light shadow text-dark col-sm">View Datails <i class='fas fa-book-reader'></i></button></a></div>
+								<div class="ml-auto col-sm"><a href="{{route('viewQuestion',['id'=>$data2[$n]->id])}}" class=""><button type="button" class="btn btn-outline-light shadow text-dark col-sm">View Datails <i class='fas fa-book-reader'></i></button></a></div>
 							</div>
 							<div class="card-body">Assignment Due On: {{$data2[$n]->submission_d_t}}</div>
 						</div>
 					</div>
 				</div>
+				</tr>
+
 				@endif
 				@endif
-				<input type="hidden" value="{{$j--}}">
-				@endwhile
-				@else
-				<tr>
-				<div class="row mt-3">
-					<div class="col-12">
-						<div class="card rounded shadow bg-info">
-							<div class="card-header row">
-								<div class="col-sm-10"><i class="far fa-newspaper"></i> {{$data2[$n]->assignment_name}}</div>
-								<div class="ml-auto col-sm bg-info text-light"><a href="{{route('viewQuestion',['id'=>$data2[$n]->id])}}" class=""><button type="button" class="btn btn-outline-light shadow text-dark col-sm">View Datails <i class='fas fa-book-reader'></i></button></a></div>
-							</div>
-							<div class="card-body">Assignment Due On: {{$data2[$n]->submission_d_t}}</div>
-						</div>
-					</div>
-				</div>
-				@endif
-				@endif
-				@endif
-			</tr>
+				</tr>
 			<input type="hidden" value="{{$n--}}">
 			@endwhile
 		</table>
