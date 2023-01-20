@@ -3,7 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentRegController;
 use App\Http\Controllers\ProfileControlController;
+use App\Http\Controllers\TeacherRegController;
 use App\Http\Controllers\viewQuestionController;
+use App\Models\TeacherRegModel;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +18,7 @@ use App\Http\Controllers\viewQuestionController;
 |
 */
 
+//routes for student module functions
 
 Route::get('/', [StudentRegController::class, 'index']);
 Route::get('go', [StudentRegController::class, 'index']);
@@ -31,3 +35,8 @@ Route::get('viewQuestion/{id}',[viewQuestionController::class, 'viewQuestion'])-
 Route::post('submitAns/{stu_id}{ass_id}',[viewQuestionController::class, 'submitAns'])->name('submitAns');
 
 
+
+//routes for teacher module functions
+Route::get('/teacher',[TeacherRegController::class,'index']);
+Route::get('/teacher-account-creation', [TeacherRegController::class, 'register'])->name('Register');
+Route::post('/teacherreg',[TeacherRegController::class,'teacherreg']);
