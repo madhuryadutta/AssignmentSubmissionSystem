@@ -48,7 +48,9 @@ class StudentRegController extends Controller
         $students->dob = $request->input('dob');
         $students->save();
         return redirect('/')->with('status', "Account Created Successfully.");
+    
     }
+    
     public function login(Request $request)
     {
         $request->validate([
@@ -92,5 +94,11 @@ class StudentRegController extends Controller
             Session::pull('loginId');
             return redirect('/');
         }
+    }
+    
+    public function viewstu(){
+        $assignments =StuRegModel::all();
+        $data = compact('assignments');
+        return view('view_student')->with($data);
     }
 }

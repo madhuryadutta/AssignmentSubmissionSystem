@@ -60,7 +60,7 @@ class TeacherRegController extends Controller
         ])->first();
         if ($usr) {
             if (Hash::check($request->Password, $usr->t_password)) {
-                $request->session()->put('loginId', $usr->id);
+                $request->session()->put('loginId', $usr->t_id);
                 return redirect('teacher_dashboard');
             } else {
                 return redirect('/teacher')->with('pass', "You Have Entered Wrong Password");
@@ -77,8 +77,8 @@ class TeacherRegController extends Controller
             if (Session::has('loginId')) {
                 $sid =  Session::get('loginId');
                 $data = TeacherRegModel::where('t_id', "=", Session::get('loginId'))->first();
-                // $data1 = department::where('d_id', "=", $data->d_id)->first();
-                return view('teacher_dashboard', compact('data', 'sid', 'todayDate'));
+                $data1 = department::where('d_id', "=", $data->d_id)->first();
+                return view('teacher_dashboard', compact('data','data1', 'sid', 'todayDate'));
             }
         }
      

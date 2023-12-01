@@ -50,3 +50,5 @@ Route::get('teacher_logout',[TeacherRegController::class,'logout']);
 Route::get('create_assignment',[AssignmentController::class,'index']);
 Route::post('create_assignment',[AssignmentController::class,'store'])->name('create_assignment');
 Route::get('teacher_view_assignment',[AssignmentController::class,'view']);
+Route::get('teacher_view_student',[StudentRegController::class,'viewstu']);
+Route::get('view_Submissions/{id}',[AssignmentController::class,'view_submission'])->name('view_submissions');

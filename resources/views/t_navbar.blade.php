@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html>
 
 <head>
@@ -93,7 +93,7 @@
       <div class="col-sm-4 mt-3">
         WELCOME
         <br>
-        {{$data->name}}
+        {{$data->t_name}}
       </div>
 
     </div>
@@ -143,16 +143,16 @@
           <div class="col">
             <div class="row">
               <label for="signup-name" class="col">Full Name</label>
-              <input id="signup-name" class="col form-control-plaintext" type="text" name="name" value="{{$data->name}}" />
+              <input id="signup-name" class="col form-control-plaintext" type="text" name="name" value="{{$data->t_name}}" />
             </div>
 
             <div class="row mt-2">
               <label for="signup-email" class="col">Email Address</label>
-              <input id="signup-email" class="col form-control-plaintext" type="email" name="email" autocomplete="off" value="{{$data->email}}"></input>
+              <input id="signup-email" class="col form-control-plaintext" type="email" name="email" autocomplete="off" value="{{$data->t_email}}"></input>
             </div>
             <div class="row mt-2">
               <label for="address" class="col">Address</label>
-              <input id="address" class="col form-control-plaintext" type="text" name="address" value="{{$data->Address}}" readonly></input>
+              <input id="address" class="col form-control-plaintext" type="text" name="address" value="{{$data->t_address}}" readonly></input>
             </div>
 
             
@@ -172,13 +172,13 @@
               <div class="col-sm-6">
 
                  <label for="male">male</label>
-                <input type="radio" id="male" name="gender" value="M" {{$data->gender =="M" ? "checked":""}} />
+                <input type="radio" id="male" name="gender" value="M" {{$data->t_gender =="M" ? "checked":""}} />
 
                  <label for="female">female</label>
-                <input type="radio" id="female" name="gender" value="F" {{$data->gender =="F" ? "checked":""}} />
+                <input type="radio" id="female" name="gender" value="F" {{$data->t_gender =="F" ? "checked":""}} />
 
                  <label for="others">other</label>
-                <input type="radio" id="others" name="gender" value="O" {{$data->gender =="O" ? "checked":""}} />
+                <input type="radio" id="others" name="gender" value="O" {{$data->t_gender =="O" ? "checked":""}} />
               </div>
             </div>
           </div>
@@ -195,4 +195,32 @@
   </div>
 </body>
 
+</html> --}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <nav class="navbar navbar-dark bg-dark">
+		 
+    <ul class="nav nav-pills">
+     <li class="nav-item">
+       <a class="nav-link active" href="{{url('dashboard')}}">Dashboard</a>
+     </li>
+     <li class="nav-item">
+       <a class="nav-link" href="{{url('teacher_view_assignment')}}">View Assignments</a>
+     </li>
+     <li class="nav-item">
+       <a class="nav-link" href="#">Link</a>
+     </li>
+     <li class="nav-item">
+       <a class="nav-link" href="{{url('teacher_logout')}}" >Logout</a>
+     </li>
+     </ul>
+   </nav>
+</body>
 </html>

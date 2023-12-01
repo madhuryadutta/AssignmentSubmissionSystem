@@ -10,6 +10,23 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
+    <nav class="navbar navbar-dark bg-dark">
+		 
+        <ul class="nav nav-pills">
+         <li class="nav-item">
+           <a class="nav-link active" href="{{url('teacher_dashboard')}}">Dashboard</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="{{url('teacher_view_assignment')}}">View Assignments</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="#">Link</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="{{url('teacher_logout')}}" >Logout</a>
+         </li>
+         </ul>
+       </nav>
     <table class="table">
    
         <thead>
@@ -46,13 +63,12 @@
                 </td>
                 <td>{{$assignment->submission_d_t}}</td>
         <td>
-            <button class="badge badge-primary">
+            <a href="{{route('view_submissions' , ['id'=>$assignment->id])}}" > <button class="badge badge-primary">
                 View Submissions
             </button>
-            <button class="badge badge-primary">
-               Read More
-            </button>
-            <button class="badge badge-primary">
+           
+            
+        </a> <button class="badge badge-primary">
                 Delete Assignment
             </button>
             <td>

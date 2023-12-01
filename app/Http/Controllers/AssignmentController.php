@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\questions;
 use App\Models\Assignments;
+use App\Models\StuRegModel;
+use App\Models\subAns;
 class AssignmentController extends Controller
 {
     //
@@ -48,4 +50,14 @@ class AssignmentController extends Controller
         $data = compact('assignments');
         return view('view_assignments')->with($data);
     }
+    public function view_submission($id){
+        $submission = subAns::all()->where('s_id', "=", $id);;
+        // $students = StuRegModel::all();
+        // $questions = questions::all()->where('assignment_id', "=", $id);;
+        // return view('view_submission')->with($data);
+        return view('view_submission', compact('submission',));        
+        // return view('viewQuestion', compact('data', 'id1', 'id'));
+
+    }
+
 }
